@@ -1,47 +1,12 @@
-* {
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  overflow: hidden;
 }
 
-body {
+img {
   width: 100vw;
   height: 100vh;
-  background: #ffffff;
-  overflow: hidden;
-  cursor: none;
-}
-
-#light-glow {
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 240, 200, 0.9) 0%, rgba(255, 240, 200, 0.3) 40%, transparent 70%);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  mix-blend-mode: multiply;
-}
-
-#hand-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 250px;
-  height: 312px;
-  pointer-events: none;
-}
-
-#hand-shadow {
-  width: 100%;
-  height: 100%;
-  filter: blur(8px);
-  opacity: 0.35;
-  transition: filter 0.15s ease-out, opacity 0.15s ease-out;
-}
-
-#hand-shadow path {
-  fill: #000000;
+  object-fit: cover;
+  display: block;
 }
