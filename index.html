@@ -53,6 +53,51 @@
           <p>Er zeigt Ihre Infos und Werbung auf dem Tablet und beantwortet Fragen im Gespräch.</p>
         </li>
       </ol>
+
+      <figure class="device" aria-label="Beispiele: So können Inhalte auf Peppers Tablet aussehen">
+        <div class="tablet">
+          <div class="screen">
+
+            <div class="slide slide-industry is-active">
+              <div class="slide-visual">
+                <svg viewBox="0 0 200 160" aria-hidden="true"><g fill="none" stroke="#ff7a1a" stroke-width="10"><circle cx="78" cy="84" r="34"/><circle cx="150" cy="54" r="20"/></g><g fill="#ff7a1a"><circle cx="78" cy="84" r="10"/><circle cx="150" cy="54" r="6"/></g><path d="M20 140h160" stroke="#3a4a66" stroke-width="4"/></svg>
+                <span class="slide-logo">Nordwerk</span>
+              </div>
+              <div class="slide-side">
+                <p class="slide-tag">Halle 4, Stand B12</p>
+                <p class="slide-title">Die neue NW‑500. Fragen Sie mich alles dazu.</p>
+                <span class="slide-button">Datenblatt ansehen</span>
+              </div>
+            </div>
+
+            <div class="slide slide-beauty">
+              <div class="slide-visual">
+                <svg viewBox="0 0 200 160" aria-hidden="true"><rect x="58" y="44" width="38" height="96" rx="14" fill="#fff" opacity=".9"/><rect x="66" y="28" width="22" height="20" rx="5" fill="#e7a3b5"/><rect x="108" y="76" width="44" height="64" rx="18" fill="#fff" opacity=".75"/><rect x="118" y="64" width="24" height="16" rx="5" fill="#e7a3b5"/></svg>
+                <span class="slide-logo">lumea</span>
+              </div>
+              <div class="slide-side">
+                <p class="slide-tag">Neu: Serum Kollektion</p>
+                <p class="slide-title">Welche Pflege passt zu Ihnen? Ich berate Sie gern.</p>
+                <span class="slide-button">Beratung starten</span>
+              </div>
+            </div>
+
+            <div class="slide slide-food">
+              <div class="slide-visual">
+                <svg viewBox="0 0 200 160" aria-hidden="true"><path d="M52 66h84l-8 66a10 10 0 0 1-10 9H70a10 10 0 0 1-10-9z" fill="#fff4e6"/><path d="M136 80h10a16 16 0 0 1 0 32h-14" fill="none" stroke="#fff4e6" stroke-width="8"/><g fill="none" stroke="#fff4e6" stroke-width="5" stroke-linecap="round" opacity=".7"><path d="M78 52c-6-8 6-14 0-24"/><path d="M98 52c-6-8 6-14 0-24"/><path d="M118 52c-6-8 6-14 0-24"/></g></svg>
+                <span class="slide-logo">Hafenröster</span>
+              </div>
+              <div class="slide-side">
+                <p class="slide-tag">Nur auf der Messe</p>
+                <p class="slide-title">Probieren Sie unsere neue Röstung.</p>
+                <span class="slide-button">Kostprobe holen</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <figcaption>Beispiele mit erfundenen Firmen. Ihr Stand bekommt sein eigenes Design.</figcaption>
+      </figure>
     </section>
 
     <!-- Preis: Betrag fehlt noch
@@ -79,7 +124,7 @@
         <label>E-Mail<input type="email" name="email" required autocomplete="email"></label>
         <label>Messe und Datum<input type="text" name="Messe" placeholder="z. B. Hannover Messe, 20.–24. April"></label>
         <label>Nachricht<textarea name="Nachricht" rows="4"></textarea></label>
-        <button class="btn btn-dark" type="submit">Anfrage senden</button>
+        <button class="btn" type="submit">Anfrage senden</button>
       </form>
     </section>
   </main>
@@ -88,5 +133,18 @@
     <span>© 2026 umbra robotics</span>
     <a href="impressum.html">Impressum</a>
   </footer>
+  <script>
+    // Tablet-Beispiele wechseln alle 4 Sekunden
+    (() => {
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const slides = document.querySelectorAll(".slide");
+      let i = 0;
+      setInterval(() => {
+        slides[i].classList.remove("is-active");
+        i = (i + 1) % slides.length;
+        slides[i].classList.add("is-active");
+      }, 4000);
+    })();
+  </script>
 </body>
 </html>

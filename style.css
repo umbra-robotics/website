@@ -152,6 +152,117 @@ h3 {
   max-width: 22rem;
 }
 
+/* Tablet-Mockup */
+
+.device {
+  margin: clamp(48px, 8vw, 96px) 0 0;
+  padding: clamp(32px, 7vw, 96px) clamp(16px, 5vw, 80px);
+  border-radius: 28px;
+  background: radial-gradient(120% 90% at 50% 0%, #fafafa, #e9e9eb);
+  text-align: center;
+}
+
+.tablet {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(10px, 1.8vw, 18px);
+  border-radius: clamp(18px, 3vw, 34px);
+  background: linear-gradient(145deg, #2a2a2c, #0a0a0a);
+  box-shadow:
+    inset 0 0 0 1.5px #3a3a3c,
+    0 2px 4px rgb(0 0 0 / .08),
+    0 30px 60px -20px rgb(0 0 0 / .35),
+    0 60px 120px -40px rgb(0 0 0 / .25);
+}
+
+.screen {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: clamp(10px, 1.8vw, 18px);
+  overflow: hidden;
+  text-align: left;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(8px, 1.6vw, 16px);
+  padding: clamp(8px, 1.6vw, 16px);
+  background: var(--bg);
+  color: var(--fg);
+  opacity: 0;
+  transition: opacity .8s ease;
+}
+.slide.is-active { opacity: 1; }
+
+.slide-industry { --bg: #f1f3f6; --fg: #0f1a2e; --panel: #13213d; --accent: #ff7a1a; --on-accent: #fff; }
+.slide-beauty   { --bg: #fbf4f5; --fg: #3a2228; --panel: linear-gradient(160deg, #f6c9d4, #e7a3b5); --accent: #3a2228; --on-accent: #fff; }
+.slide-food     { --bg: #f8f1e8; --fg: #2b1a10; --panel: linear-gradient(160deg, #8a5a3a, #4a2c1a); --accent: #2b1a10; --on-accent: #fff4e6; }
+
+.slide-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-radius: clamp(8px, 1.4vw, 14px);
+  background: var(--panel);
+}
+.slide-visual svg { width: 72%; height: auto; }
+
+.slide-logo {
+  position: absolute;
+  top: 7%;
+  left: 7%;
+  padding: 0.3em 0.7em;
+  border-radius: 999px;
+  background: rgb(255 255 255 / .92);
+  color: var(--fg);
+  font-size: clamp(0.55rem, 1.3vw, 0.85rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.slide-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(6px, 1.4vw, 14px);
+  padding: 0 4% 0 2%;
+}
+
+.slide-tag {
+  margin: 0;
+  font-size: clamp(0.55rem, 1.2vw, 0.85rem);
+  font-weight: 500;
+  opacity: .6;
+}
+
+.slide-title {
+  margin: 0;
+  font-size: clamp(0.85rem, 2.4vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.slide-button {
+  align-self: flex-start;
+  margin-top: 4%;
+  padding: 0.8em 1.3em;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: clamp(0.6rem, 1.4vw, 0.95rem);
+  font-weight: 600;
+}
+
+.device figcaption {
+  margin-top: clamp(24px, 4vw, 40px);
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+
 /* Preis */
 
 .price {
@@ -177,9 +288,14 @@ h3 {
 /* Kontakt */
 
 .contact {
-  max-width: 72rem;
-  margin: 0;
-  padding: clamp(64px, 12vw, 140px) var(--gutter);
+  width: calc(100% - 2 * var(--gutter));
+  max-width: 40rem;
+  margin: clamp(64px, 12vw, 140px) auto;
+  padding: clamp(32px, 6vw, 64px);
+  border-radius: 28px;
+  background: var(--black);
+  color: var(--white);
+  text-align: center;
 }
 
 h2 {
@@ -191,13 +307,14 @@ h2 {
 }
 
 .lead {
-  margin: 0 0 2.5rem;
+  margin: 0 auto 2.5rem;
+  max-width: 26rem;
   color: var(--grey);
   font-size: 1.1rem;
   line-height: 1.45;
 }
 
-form { display: grid; gap: 1.25rem; max-width: 34rem; }
+form { display: grid; gap: 1.25rem; text-align: left; }
 
 label {
   display: grid;
@@ -209,27 +326,27 @@ label {
 input, textarea {
   width: 100%;
   padding: 0.9em 1em;
-  border: 1px solid var(--line);
+  border: 1px solid #2c2c2e;
   border-radius: 12px;
-  background: #f6f6f6;
+  background: #1c1c1e;
   font: 400 1rem/1.4 Inter, system-ui, sans-serif;
-  color: var(--black);
+  color: var(--white);
 }
-input:focus, textarea:focus { outline: none; border-color: var(--black); background: var(--white); }
+input::placeholder, textarea::placeholder { color: #6e6e73; }
+input:focus, textarea:focus { outline: none; border-color: var(--white); }
 textarea { resize: vertical; }
 
-form .btn { justify-self: start; margin-top: 0.5rem; }
+form .btn { width: 100%; margin-top: 0.5rem; }
 
 .honey { display: none; }
 
 .thanks {
   display: none;
-  max-width: 34rem;
   margin: 0 0 2rem;
   padding: 1em 1.2em;
   border-radius: 12px;
-  background: var(--black);
-  color: var(--white);
+  background: var(--white);
+  color: var(--black);
   font-weight: 500;
 }
 .thanks:target { display: block; }
