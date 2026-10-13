@@ -222,6 +222,7 @@ h3 {
   border-radius: 0.6em;
   background: rgb(255 255 255 / .94);
   box-shadow: 0 2px 8px rgb(0 0 0 / .12);
+  font-size: clamp(0.5rem, 1.2vw, 0.8rem);
   font-size: 2.3cqw;
   font-weight: 600;
 }
@@ -246,6 +247,7 @@ h3 {
 .slide-title {
   margin: 0;
   padding: 2% 2% 0 0;
+  font-size: clamp(0.8rem, 2.6vw, 1.9rem);
   font-size: 4.6cqw;
   font-weight: 700;
   line-height: 1.15;
@@ -262,6 +264,7 @@ h3 {
   border-radius: clamp(8px, 1.4vw, 14px);
   background: var(--brand);
   color: #fff;
+  font-size: clamp(0.6rem, 1.7vw, 1.25rem);
   font-size: 3.1cqw;
   font-weight: 600;
 }
@@ -288,9 +291,9 @@ h3 {
   display: grid;
   gap: 10px;
   opacity: 0;
-  transition: opacity .8s ease;
+  transition: opacity .4s ease;
 }
-.chat-set.is-active { opacity: 1; }
+.chat-set.is-active { opacity: 1; transition-delay: .45s; }
 
 .bubble {
   max-width: 80%;
