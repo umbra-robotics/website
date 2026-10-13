@@ -104,11 +104,81 @@ h1 {
 .btn:hover { opacity: .85; }
 .btn-dark { background: var(--black); color: var(--white); }
 
+/* So funktioniert's */
+
+.how {
+  max-width: 72rem;
+  margin: 0;
+  padding: clamp(64px, 12vw, 140px) var(--gutter) 0;
+}
+
+.steps {
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 2.5rem;
+  counter-reset: step;
+}
+
+.steps li { counter-increment: step; }
+
+.steps li::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1.25rem;
+  border-radius: 50%;
+  background: var(--black);
+  color: var(--white);
+  font-weight: 600;
+}
+
+h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.steps p {
+  margin: 0;
+  color: var(--grey);
+  line-height: 1.5;
+  max-width: 22rem;
+}
+
+/* Preis */
+
+.price {
+  max-width: 72rem;
+  margin: clamp(64px, 12vw, 140px) 0 0;
+  padding: 0 var(--gutter);
+}
+
+.price-amount {
+  margin: 0;
+  font-size: clamp(3.5rem, 11vw, 8rem);
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.price-unit {
+  margin: 0.4rem 0 2rem;
+  font-size: 1.25rem;
+  color: var(--grey);
+}
+
 /* Kontakt */
 
 .contact {
-  max-width: 34rem;
-  margin: 0 auto;
+  max-width: 72rem;
+  margin: 0;
   padding: clamp(64px, 12vw, 140px) var(--gutter);
 }
 
@@ -127,7 +197,7 @@ h2 {
   line-height: 1.45;
 }
 
-form { display: grid; gap: 1.25rem; }
+form { display: grid; gap: 1.25rem; max-width: 34rem; }
 
 label {
   display: grid;
@@ -154,6 +224,7 @@ form .btn { justify-self: start; margin-top: 0.5rem; }
 
 .thanks {
   display: none;
+  max-width: 34rem;
   margin: 0 0 2rem;
   padding: 1em 1.2em;
   border-radius: 12px;
