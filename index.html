@@ -20,10 +20,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://umbra-robotics.com/og.jpg">
   <link rel="icon" type="image/png" href="Screenshot 2026-02-05 191718.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261013h">
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=20261013i">
 </head>
 <body>
   <main>
@@ -107,7 +105,7 @@
       <p class="price-amount"><span>ab 999 €<sup>*</sup></span></p>
       <p class="price-unit">pro Messetag</p>
       <a class="btn btn-dark" href="#kontakt">Pepper anfragen</a>
-      <p class="price-note">* Netto zzgl. MwSt. Enthalten sind Pepper für einen Messetag und die Einrichtung mit Ihren Inhalten. Transport, Anreise und Betreuung vor Ort berechnen wir nach Aufwand. Das genaue Angebot erhalten Sie nach Ihrer Anfrage.</p>
+      <p class="price-note">* Unverbindlicher Richtpreis. Das Angebot richtet sich ausschließlich an Unternehmen. Enthalten sind Pepper für einen Messetag und die Einrichtung mit Ihren Inhalten. Transport, Anreise und Betreuung vor Ort berechnen wir nach Aufwand. Das genaue Angebot erhalten Sie nach Ihrer Anfrage.</p>
     </section>
 
     <section class="contact" id="kontakt">
@@ -126,6 +124,7 @@
         <label>E-Mail<input type="email" name="email" required autocomplete="email"></label>
         <label>Messe und Datum<input type="text" name="Messe" placeholder="z. B. Hannover Messe, April 2027"></label>
         <label>Nachricht<textarea name="Nachricht" rows="4"></textarea></label>
+        <p class="form-hint">Mit dem Absenden werden Ihre Angaben per E‑Mail an uns übermittelt. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
         <button class="btn btn-dark" type="submit">Anfrage senden</button>
         <p class="form-error" role="alert" hidden>Das Senden hat nicht geklappt. Bitte versuchen Sie es in einem Moment noch einmal.</p>
       </form>
@@ -134,7 +133,7 @@
 
   <footer class="footer">
     <span>© 2026 umbra robotics</span>
-    <a href="impressum.html">Impressum</a>
+    <nav class="footer-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   </footer>
   <script>
     // Tablet-Beispiele wechseln alle 4 Sekunden
