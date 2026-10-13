@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>umbra robotics – Pepper für Ihren Messestand</title>
-  <meta name="description" content="Pepper begrüßt Besucher an Ihrem Messestand und zeigt Ihre Inhalte auf seinem Display.">
+  <meta name="description" content="Pepper spricht Besucher an Ihrem Messestand an und beantwortet ihre Fragen zu Ihren Produkten und Angeboten.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://umbra-robotics.com/">
   <meta property="og:title" content="Pepper für Ihren Messestand">
-  <meta property="og:description" content="Pepper begrüßt Besucher, spricht sie an und zeigt Ihre Inhalte auf seinem Display.">
+  <meta property="og:description" content="Pepper spricht Ihre Besucher an und beantwortet ihre Fragen zu Ihren Produkten und Angeboten.">
   <meta property="og:image" content="https://umbra-robotics.com/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -32,7 +32,7 @@
 
       <div class="hero-text">
         <h1>Pepper für Ihren Messestand.</h1>
-        <p>Pepper begrüßt Besucher, spricht sie an und zeigt Ihre Inhalte auf seinem Display.</p>
+        <p>Pepper spricht Ihre Besucher an und beantwortet ihre Fragen zu Ihren Produkten und Angeboten.</p>
         <a class="btn" href="#kontakt">Pepper anfragen</a>
       </div>
     </section>
@@ -49,8 +49,8 @@
           <p>Begrüßung, Tablet und Wissen sind auf Ihr Unternehmen zugeschnitten.</p>
         </li>
         <li>
-          <h3>Pepper spricht Ihre Besucher an</h3>
-          <p>Er zeigt Ihre Infos und Werbung auf dem Tablet und beantwortet Fragen im Gespräch.</p>
+          <h3>Pepper berät Ihre Besucher</h3>
+          <p>Er spricht Besucher von sich aus an, beantwortet Fragen zu Ihren Angeboten und zeigt passende Infos auf dem Tablet.</p>
         </li>
       </ol>
 
@@ -87,6 +87,20 @@
               </div>
             </div>
 
+          </div>
+        </div>
+        <div class="chat" aria-live="off">
+          <div class="chat-set is-active">
+            <p class="bubble bubble-visitor">Lohnt sich Solar auf einem Altbau?</p>
+            <p class="bubble bubble-pepper">Meistens ja. Wie groß ist Ihr Dach ungefähr? Dann rechne ich es Ihnen aus.</p>
+          </div>
+          <div class="chat-set">
+            <p class="bubble bubble-visitor">Gibt es die Küche auch in Eiche?</p>
+            <p class="bubble bubble-pepper">Ja, in drei Holztönen. Ich zeige sie Ihnen auf meinem Tablet.</p>
+          </div>
+          <div class="chat-set">
+            <p class="bubble bubble-visitor">Welcher Kaffee ist eher mild?</p>
+            <p class="bubble bubble-pepper">Probieren Sie unsere Hausröstung. Eine Kostprobe bekommen Sie direkt am Tresen.</p>
           </div>
         </div>
         <figcaption>Beispiele. Ihr Stand bekommt sein eigenes Design.</figcaption>
@@ -129,13 +143,14 @@
     // Tablet-Beispiele wechseln alle 4 Sekunden
     (() => {
       if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      const slides = document.querySelectorAll(".slide");
+      const groups = [".slide", ".chat-set"].map((sel) => document.querySelectorAll(sel));
+      const count = groups[0].length;
       let i = 0;
       setInterval(() => {
-        slides[i].classList.remove("is-active");
-        i = (i + 1) % slides.length;
-        slides[i].classList.add("is-active");
-      }, 4000);
+        groups.forEach((g) => g[i].classList.remove("is-active"));
+        i = (i + 1) % count;
+        groups.forEach((g) => g[i].classList.add("is-active"));
+      }, 5000);
     })();
   </script>
 </body>
