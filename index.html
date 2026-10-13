@@ -8,23 +8,50 @@
   <link rel="icon" type="image/png" href="Screenshot 2026-02-05 191718.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="hero">
-    <video class="hero-video" src="hero.mp4" poster="hero.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+  <main>
+    <section class="hero">
+      <video class="hero-video" src="hero.mp4" poster="hero.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
 
-    <header class="bar">
-      <span class="wordmark">umbra robotics</span>
-      <a class="bar-link" href="mailto:TODO@umbra-robotics.com">Kontakt</a>
-    </header>
+      <header class="bar">
+        <span class="wordmark">umbra robotics</span>
+        <a class="bar-link" href="#kontakt">Kontakt</a>
+      </header>
 
-    <div class="hero-text">
-      <h1>Pepper für Ihren Messestand.</h1>
-      <p>Pepper begrüßt Besucher, spricht sie an und zeigt Ihre Inhalte auf seinem Display.</p>
-      <a class="cta" href="mailto:TODO@umbra-robotics.com?subject=Pepper%20f%C3%BCr%20unsere%20Messe">Pepper anfragen</a>
-    </div>
+      <div class="hero-text">
+        <h1>Pepper für Ihren Messestand.</h1>
+        <p>Pepper begrüßt Besucher, spricht sie an und zeigt Ihre Inhalte auf seinem Display.</p>
+        <a class="btn" href="#kontakt">Pepper anfragen</a>
+      </div>
+    </section>
+
+    <section class="contact" id="kontakt">
+      <h2>Pepper anfragen</h2>
+      <p class="lead">Sagen Sie uns, wann und wo Ihre Messe ist. Wir melden uns per E-Mail.</p>
+
+      <p class="thanks" id="danke">Danke, Ihre Anfrage ist angekommen.</p>
+
+      <form action="https://formsubmit.co/christian.wilsch@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Neue Pepper-Anfrage über umbra-robotics.com">
+        <input type="hidden" name="_next" value="https://umbra-robotics.com/#danke">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off">
+
+        <label>Name<input type="text" name="Name" required autocomplete="name"></label>
+        <label>E-Mail<input type="email" name="email" required autocomplete="email"></label>
+        <label>Messe und Datum<input type="text" name="Messe" placeholder="z. B. Hannover Messe, 20.–24. April"></label>
+        <label>Nachricht<textarea name="Nachricht" rows="4"></textarea></label>
+        <button class="btn btn-dark" type="submit">Anfrage senden</button>
+      </form>
+    </section>
   </main>
+
+  <footer class="footer">
+    <span>© 2026 umbra robotics</span>
+    <a href="impressum.html">Impressum</a>
+  </footer>
 </body>
 </html>
