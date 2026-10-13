@@ -436,7 +436,6 @@ form .btn { width: 100%; margin-top: 0.5rem; }
 .honey { display: none; }
 
 .thanks {
-  display: none;
   margin: 0 0 2rem;
   padding: 1em 1.2em;
   border-radius: 12px;
@@ -444,7 +443,16 @@ form .btn { width: 100%; margin-top: 0.5rem; }
   color: var(--white);
   font-weight: 500;
 }
-.thanks:target { display: block; }
+.thanks[hidden], .form-error[hidden] { display: none; }
+
+.form-error {
+  margin: 0;
+  color: #b42318;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+form .btn:disabled { opacity: .6; cursor: wait; }
 
 /* Footer und Unterseiten */
 

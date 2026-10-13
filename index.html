@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261013f">
+  <link rel="stylesheet" href="style.css?v=20261013g">
 </head>
 <body>
   <main>
@@ -114,9 +114,9 @@
       <h2>Pepper anfragen</h2>
       <p class="lead">Sagen Sie uns, wann und wo Ihre Messe ist. Wir melden uns per E‑Mail.</p>
 
-      <p class="thanks" id="danke">Danke, Ihre Anfrage ist angekommen.</p>
+      <p class="thanks" id="danke" role="status" hidden>Danke! Ihre Anfrage ist angekommen. Wir melden uns per E‑Mail.</p>
 
-      <form action="https://formsubmit.co/christian.wilsch@gmail.com" method="POST">
+      <form id="anfrage" action="https://formsubmit.co/christian.wilsch@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="Neue Pepper-Anfrage über umbra-robotics.com">
         <input type="hidden" name="_next" value="https://umbra-robotics.com/#danke">
         <input type="hidden" name="_template" value="table">
@@ -127,6 +127,7 @@
         <label>Messe und Datum<input type="text" name="Messe" placeholder="z. B. Hannover Messe, April 2027"></label>
         <label>Nachricht<textarea name="Nachricht" rows="4"></textarea></label>
         <button class="btn btn-dark" type="submit">Anfrage senden</button>
+        <p class="form-error" role="alert" hidden>Das Senden hat nicht geklappt. Bitte versuchen Sie es in einem Moment noch einmal.</p>
       </form>
     </section>
   </main>
@@ -147,6 +148,37 @@
         i = (i + 1) % count;
         groups.forEach((g) => g[i].classList.add("is-active"));
       }, 5000);
+    })();
+
+    // Anfrage direkt auf der Seite senden, ohne Umweg über die Formsubmit-Seite
+    (() => {
+      const form = document.getElementById("anfrage");
+      const thanks = document.getElementById("danke");
+      const error = form.querySelector(".form-error");
+      const button = form.querySelector("button[type=submit]");
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        error.hidden = true;
+        button.disabled = true;
+        button.textContent = "Wird gesendet …";
+        const data = Object.fromEntries(new FormData(form));
+        data._captcha = "false";
+        try {
+          const res = await fetch("https://formsubmit.co/ajax/christian.wilsch@gmail.com", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify(data),
+          });
+          const json = await res.json();
+          if (!res.ok || String(json.success) !== "true") throw new Error(json.message);
+          form.hidden = true;
+          thanks.hidden = false;
+        } catch {
+          error.hidden = false;
+          button.disabled = false;
+          button.textContent = "Anfrage senden";
+        }
+      });
     })();
   </script>
 </body>
