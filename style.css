@@ -296,6 +296,21 @@ h3 {
   line-height: 1;
 }
 
+.price-amount sup {
+  font-size: 0.35em;
+  vertical-align: super;
+  margin-left: 0.05em;
+  letter-spacing: 0;
+}
+
+.price-note {
+  max-width: 34rem;
+  margin: 2rem auto 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--grey);
+}
+
 .price-unit {
   margin: 0.4rem 0 2rem;
   font-size: 1.25rem;
